@@ -58,6 +58,7 @@
     <Compile Include="Catalog.cs">
       <DependentUpon>InvoiceManagementModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\SignInController.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,7 +92,7 @@
       <DependentUpon>InvoiceManagementModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Utils\FormBuilder.cs" />
-    <Compile Include="Utils\SignInContext.cs" />
+    <Compile Include="Utils\UserContext.cs" />
     <Compile Include="Views\SignInView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,5 +152,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

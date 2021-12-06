@@ -4,18 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Practice_06.Controllers;
+using Practice_06.Views;
 
 namespace Practice_06.Utils
 {
     public static class FormBuilder
     {
-        /// <summary>
-        /// Displays the form natively for classes that implement the Form class
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="form"></param>
-        /// <param name="children"></param>
-        /// <param name="isMdi"></param>
+
+        private static SignInController signInController = new SignInController();
+
         public static void ShowForm<T>(this T form, Form children, bool isMdi = true) where T : Form
         {
             if (!IsOpen(children.Name))
@@ -42,6 +40,23 @@ namespace Practice_06.Utils
 
                 e.Cancel = true;
             }
+        }
+
+        public static void SignInForm<T>(this T form) where T : SignInView
+        {
+            string username = form.TextBoxUserName.Text;
+            string password = form.TextBoxPassword.Text;
+            var user = signInController.SignIn(username, password);
+
+            if (user != null)
+            {
+                MessageBox.Show("Session successfully started");
+                UserContext.GetInstance().SetUser(user);
+                form.Dispose();
+                return;
+            }
+
+            MessageBox.Show("The username or password is incorrect");
         }
 
         private static bool IsOpen(string name)

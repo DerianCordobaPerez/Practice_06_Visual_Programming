@@ -42,7 +42,7 @@
             this.ToolStripMenuItemHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.ToolStripStatusLabelUsuario = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ToolStripStatusLabelUser = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -147,18 +147,18 @@
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolStripStatusLabelUsuario});
+            this.ToolStripStatusLabelUser});
             this.statusStrip1.Location = new System.Drawing.Point(0, 428);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(800, 22);
             this.statusStrip1.TabIndex = 4;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // ToolStripStatusLabelUsuario
+            // ToolStripStatusLabelUser
             // 
-            this.ToolStripStatusLabelUsuario.Name = "ToolStripStatusLabelUsuario";
-            this.ToolStripStatusLabelUsuario.Size = new System.Drawing.Size(36, 17);
-            this.ToolStripStatusLabelUsuario.Text = "User: ";
+            this.ToolStripStatusLabelUser.Name = "ToolStripStatusLabelUser";
+            this.ToolStripStatusLabelUser.Size = new System.Drawing.Size(36, 17);
+            this.ToolStripStatusLabelUser.Text = "User: ";
             // 
             // Form1
             // 
@@ -196,7 +196,7 @@
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemHelp;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemAbout;
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel ToolStripStatusLabelUsuario;
+        private System.Windows.Forms.ToolStripStatusLabel ToolStripStatusLabelUser;
     }
 }
 

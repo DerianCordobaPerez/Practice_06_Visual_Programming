@@ -81,6 +81,7 @@
             this.ButtonSignIn.TabIndex = 4;
             this.ButtonSignIn.Text = "SignIn";
             this.ButtonSignIn.UseVisualStyleBackColor = false;
+            this.ButtonSignIn.Click += new System.EventHandler(this.ButtonSignIn_Click);
             // 
             // pictureBox1
             // 
@@ -94,6 +95,7 @@
             // 
             // SignInView
             // 
+            this.AcceptButton = this.ButtonSignIn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(269, 345);
@@ -115,8 +117,8 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox TextBoxUserName;
-        private System.Windows.Forms.TextBox TextBoxPassword;
+        public System.Windows.Forms.TextBox TextBoxUserName;
+        public System.Windows.Forms.TextBox TextBoxPassword;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button ButtonSignIn;
