@@ -34,6 +34,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.ButtonSignIn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ErrorLabelUserName = new System.Windows.Forms.Label();
+            this.ErrorLabelPassword = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,15 +43,17 @@
             // 
             this.TextBoxUserName.Location = new System.Drawing.Point(71, 202);
             this.TextBoxUserName.Name = "TextBoxUserName";
-            this.TextBoxUserName.Size = new System.Drawing.Size(186, 20);
+            this.TextBoxUserName.Size = new System.Drawing.Size(195, 20);
             this.TextBoxUserName.TabIndex = 0;
+            this.TextBoxUserName.Leave += new System.EventHandler(this.TextBoxUserName_Leave);
             // 
             // TextBoxPassword
             // 
-            this.TextBoxPassword.Location = new System.Drawing.Point(71, 254);
+            this.TextBoxPassword.Location = new System.Drawing.Point(71, 251);
             this.TextBoxPassword.Name = "TextBoxPassword";
-            this.TextBoxPassword.Size = new System.Drawing.Size(186, 20);
+            this.TextBoxPassword.Size = new System.Drawing.Size(195, 20);
             this.TextBoxPassword.TabIndex = 1;
+            this.TextBoxPassword.Leave += new System.EventHandler(this.TextBoxPassword_Leave);
             // 
             // label1
             // 
@@ -63,7 +67,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 254);
+            this.label2.Location = new System.Drawing.Point(8, 251);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 3;
@@ -71,13 +75,13 @@
             // 
             // ButtonSignIn
             // 
-            this.ButtonSignIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ButtonSignIn.BackColor = System.Drawing.Color.Navy;
             this.ButtonSignIn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ButtonSignIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonSignIn.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.ButtonSignIn.Location = new System.Drawing.Point(11, 291);
+            this.ButtonSignIn.Location = new System.Drawing.Point(11, 301);
             this.ButtonSignIn.Name = "ButtonSignIn";
-            this.ButtonSignIn.Size = new System.Drawing.Size(246, 40);
+            this.ButtonSignIn.Size = new System.Drawing.Size(255, 40);
             this.ButtonSignIn.TabIndex = 4;
             this.ButtonSignIn.Text = "SignIn";
             this.ButtonSignIn.UseVisualStyleBackColor = false;
@@ -88,17 +92,43 @@
             this.pictureBox1.Image = global::Practice_06.Properties.Resources.user;
             this.pictureBox1.Location = new System.Drawing.Point(11, 13);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(246, 174);
+            this.pictureBox1.Size = new System.Drawing.Size(253, 174);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
+            // 
+            // ErrorLabelUserName
+            // 
+            this.ErrorLabelUserName.AutoSize = true;
+            this.ErrorLabelUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ErrorLabelUserName.ForeColor = System.Drawing.Color.Red;
+            this.ErrorLabelUserName.Location = new System.Drawing.Point(4, 228);
+            this.ErrorLabelUserName.Name = "ErrorLabelUserName";
+            this.ErrorLabelUserName.Size = new System.Drawing.Size(260, 13);
+            this.ErrorLabelUserName.TabIndex = 6;
+            this.ErrorLabelUserName.Text = "Username must contain at least 2 characters";
+            this.ErrorLabelUserName.Visible = false;
+            // 
+            // ErrorLabelPassword
+            // 
+            this.ErrorLabelPassword.AutoSize = true;
+            this.ErrorLabelPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ErrorLabelPassword.ForeColor = System.Drawing.Color.Red;
+            this.ErrorLabelPassword.Location = new System.Drawing.Point(4, 277);
+            this.ErrorLabelPassword.Name = "ErrorLabelPassword";
+            this.ErrorLabelPassword.Size = new System.Drawing.Size(262, 13);
+            this.ErrorLabelPassword.TabIndex = 7;
+            this.ErrorLabelPassword.Text = "Password must contain at least 8 characters ";
+            this.ErrorLabelPassword.Visible = false;
             // 
             // SignInView
             // 
             this.AcceptButton = this.ButtonSignIn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(269, 345);
+            this.ClientSize = new System.Drawing.Size(278, 346);
+            this.Controls.Add(this.ErrorLabelPassword);
+            this.Controls.Add(this.ErrorLabelUserName);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.ButtonSignIn);
             this.Controls.Add(this.label2);
@@ -107,7 +137,7 @@
             this.Controls.Add(this.TextBoxUserName);
             this.MaximizeBox = false;
             this.Name = "SignInView";
-            this.Text = "SignInView";
+            this.Text = "SignIn with your credentials";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SignInView_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -123,5 +153,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button ButtonSignIn;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label ErrorLabelUserName;
+        private System.Windows.Forms.Label ErrorLabelPassword;
     }
 }

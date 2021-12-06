@@ -28,5 +28,15 @@ namespace Practice_06.Views
         {
             this.SignInForm();
         }
+
+        private void TextBoxUserName_Leave(object sender, EventArgs e)
+        {
+            this.ShowHideLabel(sender, ErrorLabelUserName, 2);
+        }
+
+        private void TextBoxPassword_Leave(object sender, EventArgs e)
+        {
+            this.ShowHideLabel(sender, ErrorLabelPassword, 8);
+        }
     }
 }

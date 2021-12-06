@@ -14,7 +14,6 @@ namespace Practice_06
 {
     public partial class Form1 : Form
     {
-        private UserContext UserContext = UserContext.GetInstance();
         public Form1()
         {
             InitializeComponent();
@@ -23,11 +22,7 @@ namespace Practice_06
         private void Form1_Load(object sender, EventArgs e)
         {
             this.ShowForm(new SignInView(), false);
-            if(UserContext.IsLoggedIn())
-            {
-                var user = UserContext.GetUser();
-                ToolStripStatusLabelUser.Text = $"User: {user.Name}";
-            }
+            this.InitialConfiguration();
         }
     }
 }

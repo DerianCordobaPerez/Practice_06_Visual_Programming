@@ -196,7 +196,7 @@
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemHelp;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemAbout;
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel ToolStripStatusLabelUser;
+        public System.Windows.Forms.ToolStripStatusLabel ToolStripStatusLabelUser;
     }
 }
 

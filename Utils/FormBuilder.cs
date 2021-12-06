@@ -13,18 +13,29 @@ namespace Practice_06.Utils
     {
 
         private static SignInController signInController = new SignInController();
+        private static UserContext UserContext = UserContext.GetInstance();
+
+        public static void InitialConfiguration<T>(this T form) where T : Form1
+        {
+            if (UserContext.IsLoggedIn())
+            {
+                var user = UserContext.GetUser();
+                form.ToolStripStatusLabelUser.Text = $@"User: {user.Name}";
+                form.Text = $@"Welcome {user.UserName} Active since {DateTime.Now}";
+            }
+        }
 
         public static void ShowForm<T>(this T form, Form children, bool isMdi = true) where T : Form
         {
             if (!IsOpen(children.Name))
             {
-                if(isMdi)
+                if(!isMdi)
                 {
-                    children.MdiParent = form;
-                    children.Show();
+                    children.ShowDialog();
                     return;
                 }
-                children.ShowDialog();
+                children.MdiParent = form;
+                children.Show();
             }
         }
 
@@ -57,6 +68,14 @@ namespace Practice_06.Utils
             }
 
             MessageBox.Show("The username or password is incorrect");
+        }
+
+        public static void ShowHideLabel<T>(this T form, object sender, Label label, int minimum) where T : Form
+        {
+            if(((TextBox)sender).Text.Length < minimum)
+                label.Show();
+            else
+                label.Hide();
         }
 
         private static bool IsOpen(string name)
