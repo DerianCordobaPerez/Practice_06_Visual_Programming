@@ -11,10 +11,7 @@ namespace Practice_06.Utils
 {
     public static class FormBuilder
     {
-
-        private static SignInController signInController = new SignInController();
         private static UserContext UserContext = UserContext.GetInstance();
-        private static InvoiceManagementEntities InvoiceManagementEntities = new InvoiceManagementEntities();
 
         public static void InitialConfiguration<T>(this T form) where T : Form1
         {
@@ -52,23 +49,6 @@ namespace Practice_06.Utils
 
                 e.Cancel = true;
             }
-        }
-
-        public static void SignInForm<T>(this T form) where T : SignInView
-        {
-            string username = form.TextBoxUserName.Text;
-            string password = form.TextBoxPassword.Text;
-            var user = signInController.SignIn(username, password);
-
-            if (user != null)
-            {
-                MessageBox.Show("Session successfully started");
-                UserContext.GetInstance().SetUser(user);
-                form.Dispose();
-                return;
-            }
-
-            MessageBox.Show("The username or password is incorrect");
         }
 
         public static void ShowHideLabel<T>(this T form, object sender, Label label, int minimum) where T : Form

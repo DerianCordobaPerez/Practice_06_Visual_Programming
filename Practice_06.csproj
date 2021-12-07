@@ -98,12 +98,13 @@
     </Compile>
     <Compile Include="Utils\FormBuilder.cs" />
     <Compile Include="Utils\ReportsViewBuilder.cs" />
+    <Compile Include="Utils\SignInViewBuilder.cs" />
     <Compile Include="Utils\UserContext.cs" />
-    <Compile Include="Views\ProductsView.cs">
+    <Compile Include="Views\CatalogsView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\ProductsView.Designer.cs">
-      <DependentUpon>ProductsView.cs</DependentUpon>
+    <Compile Include="Views\CatalogsView.Designer.cs">
+      <DependentUpon>CatalogsView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\ReportsView.cs">
       <SubType>Form</SubType>
@@ -130,8 +131,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Views\ProductsView.resx">
-      <DependentUpon>ProductsView.cs</DependentUpon>
+    <EmbeddedResource Include="Views\CatalogsView.resx">
+      <DependentUpon>CatalogsView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ReportsView.resx">
       <DependentUpon>ReportsView.cs</DependentUpon>

@@ -14,6 +14,7 @@ namespace Practice_06.Controllers
         {
             var users = _invoiceManagementEntities.Users;
             var exists = users
+                .AsQueryable()
                 .Where(user => user.UserName.CompareTo(username) == 0)
                 .Where(user => user.Password.CompareTo(password) == 0)
                 .FirstOrDefault();

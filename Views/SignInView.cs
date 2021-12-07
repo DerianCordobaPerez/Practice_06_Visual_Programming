@@ -26,7 +26,7 @@ namespace Practice_06.Views
 
         private void ButtonSignIn_Click(object sender, EventArgs e)
         {
-            this.SignInForm();
+            this.BackgroundWorkerSignIn();
         }
 
         private void TextBoxUserName_Leave(object sender, EventArgs e)
@@ -37,6 +37,16 @@ namespace Practice_06.Views
         private void TextBoxPassword_Leave(object sender, EventArgs e)
         {
             this.ShowHideLabel(sender, ErrorLabelPassword, 8);
+        }
+
+        private void BackgroundWorkerSingIn_DoWork(object sender, DoWorkEventArgs e)
+        {
+            this.SignInForm();
+        }
+
+        private void BackgroundWorkerSingIn_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            this.BackgroundWorkerSignInCompleted();   
         }
     }
 }

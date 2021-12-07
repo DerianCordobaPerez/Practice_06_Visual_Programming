@@ -36,6 +36,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ErrorLabelUserName = new System.Windows.Forms.Label();
             this.ErrorLabelPassword = new System.Windows.Forms.Label();
+            this.BackgroundWorkerSingIn = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,6 +52,7 @@
             // 
             this.TextBoxPassword.Location = new System.Drawing.Point(71, 251);
             this.TextBoxPassword.Name = "TextBoxPassword";
+            this.TextBoxPassword.PasswordChar = '*';
             this.TextBoxPassword.Size = new System.Drawing.Size(195, 20);
             this.TextBoxPassword.TabIndex = 1;
             this.TextBoxPassword.Leave += new System.EventHandler(this.TextBoxPassword_Leave);
@@ -121,6 +123,11 @@
             this.ErrorLabelPassword.Text = "Password must contain at least 8 characters ";
             this.ErrorLabelPassword.Visible = false;
             // 
+            // BackgroundWorkerSingIn
+            // 
+            this.BackgroundWorkerSingIn.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundWorkerSingIn_DoWork);
+            this.BackgroundWorkerSingIn.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BackgroundWorkerSingIn_RunWorkerCompleted);
+            // 
             // SignInView
             // 
             this.AcceptButton = this.ButtonSignIn;
@@ -151,9 +158,10 @@
         public System.Windows.Forms.TextBox TextBoxPassword;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button ButtonSignIn;
+        public System.Windows.Forms.Button ButtonSignIn;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label ErrorLabelUserName;
         private System.Windows.Forms.Label ErrorLabelPassword;
+        public System.ComponentModel.BackgroundWorker BackgroundWorkerSingIn;
     }
 }
