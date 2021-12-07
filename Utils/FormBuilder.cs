@@ -14,6 +14,7 @@ namespace Practice_06.Utils
 
         private static SignInController signInController = new SignInController();
         private static UserContext UserContext = UserContext.GetInstance();
+        private static InvoiceManagementEntities InvoiceManagementEntities = new InvoiceManagementEntities();
 
         public static void InitialConfiguration<T>(this T form) where T : Form1
         {
@@ -77,6 +78,7 @@ namespace Practice_06.Utils
             else
                 label.Hide();
         }
+
 
         private static bool IsOpen(string name)
         {

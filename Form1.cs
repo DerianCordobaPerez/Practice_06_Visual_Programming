@@ -24,5 +24,15 @@ namespace Practice_06
             this.ShowForm(new SignInView(), false);
             this.InitialConfiguration();
         }
+
+        private void ToolStripMenuItemReports_Click(object sender, EventArgs e)
+        {
+            this.ShowForm(new ReportsView());
+        }
+
+        private void ToolStripMenuItemCatalogs_Click(object sender, EventArgs e)
+        {
+            this.ShowForm(new CatalogsView());
+        }
     }
 }

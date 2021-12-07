@@ -80,6 +80,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>InvoiceManagementModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="InvoiceManagmentDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvoiceManagmentDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Product.cs">
       <DependentUpon>InvoiceManagementModel.tt</DependentUpon>
     </Compile>
@@ -92,7 +97,20 @@
       <DependentUpon>InvoiceManagementModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Utils\FormBuilder.cs" />
+    <Compile Include="Utils\ReportsViewBuilder.cs" />
     <Compile Include="Utils\UserContext.cs" />
+    <Compile Include="Views\ProductsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ProductsView.Designer.cs">
+      <DependentUpon>ProductsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReportsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ReportsView.Designer.cs">
+      <DependentUpon>ReportsView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\SignInView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +130,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\ProductsView.resx">
+      <DependentUpon>ProductsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ReportsView.resx">
+      <DependentUpon>ReportsView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\SignInView.resx">
       <DependentUpon>SignInView.cs</DependentUpon>
     </EmbeddedResource>
@@ -121,6 +145,17 @@
     </EntityDeploy>
     <None Include="InvoiceManagementModel.edmx.diagram">
       <DependentUpon>InvoiceManagementModel.edmx</DependentUpon>
+    </None>
+    <None Include="InvoiceManagmentDataSet.xsc">
+      <DependentUpon>InvoiceManagmentDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="InvoiceManagmentDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>InvoiceManagmentDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="InvoiceManagmentDataSet.xss">
+      <DependentUpon>InvoiceManagmentDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
