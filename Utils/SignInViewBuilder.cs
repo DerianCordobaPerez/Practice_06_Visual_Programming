@@ -32,10 +32,29 @@ namespace Practice_06.Utils
             Success = false;
         }
 
-        public static void BackgroundWorkerSignIn<T>(this T form) where T : SignInView
+        public static void BackgroundWorkerSignInStart<T>(this T form) where T : SignInView
         {
             if (form.BackgroundWorkerSingIn.IsBusy != true)
                 form.BackgroundWorkerSingIn.RunWorkerAsync();
+        }
+
+        public static void BackgroundWorkerSignInDoWork<T>(this T form) where T : SignInView
+        {
+            SignInForm(form);
+        }
+
+        public static void ShowHideLabel<T>(this T form, object sender, Label label, int minimum) where T : SignInView
+        {
+            if (((TextBox)sender).Text.Length < minimum)
+                label.Show();
+            else
+                label.Hide();
+        }
+
+        public static void EnabledButtonSignIn<T>(this T form) where T : SignInView
+        {
+            var enabled = form.TextBoxUserName.TextLength >= 2 && form.TextBoxPassword.TextLength >= 8;
+            form.ButtonSignIn.Enabled = enabled;
         }
 
         public static void BackgroundWorkerSignInCompleted<T>(this T form) where T : SignInView

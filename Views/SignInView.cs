@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Practice_06.Utils;
-using Practice_06.Controllers;
 
 namespace Practice_06.Views
 {
@@ -24,11 +23,6 @@ namespace Practice_06.Views
             this.ClosingForm(e);
         }
 
-        private void ButtonSignIn_Click(object sender, EventArgs e)
-        {
-            this.BackgroundWorkerSignIn();
-        }
-
         private void TextBoxUserName_Leave(object sender, EventArgs e)
         {
             this.ShowHideLabel(sender, ErrorLabelUserName, 2);
@@ -39,14 +33,29 @@ namespace Practice_06.Views
             this.ShowHideLabel(sender, ErrorLabelPassword, 8);
         }
 
+        private void ButtonSignIn_Click(object sender, EventArgs e)
+        {
+            this.BackgroundWorkerSignInStart();
+        }
+
         private void BackgroundWorkerSingIn_DoWork(object sender, DoWorkEventArgs e)
         {
-            this.SignInForm();
+            this.BackgroundWorkerSignInDoWork();
         }
 
         private void BackgroundWorkerSingIn_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             this.BackgroundWorkerSignInCompleted();   
+        }
+
+        private void TextBoxUserName_KeyUp(object sender, KeyEventArgs e)
+        {
+            this.EnabledButtonSignIn();
+        }
+
+        private void TextBoxPassword_KeyUp(object sender, KeyEventArgs e)
+        {
+            this.EnabledButtonSignIn();
         }
     }
 }

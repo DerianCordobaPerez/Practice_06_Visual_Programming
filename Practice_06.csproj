@@ -96,6 +96,7 @@
     <Compile Include="User.cs">
       <DependentUpon>InvoiceManagementModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Utils\CatalogsViewBuilder.cs" />
     <Compile Include="Utils\FormBuilder.cs" />
     <Compile Include="Utils\ReportsViewBuilder.cs" />
     <Compile Include="Utils\SignInViewBuilder.cs" />

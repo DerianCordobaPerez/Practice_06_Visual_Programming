@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Practice_06.Views;
 
 namespace Practice_06.Utils
 {
     public static class ReportsViewBuilder
     {
-        private static InvoiceManagementEntities InvoiceManagementEntities = new InvoiceManagementEntities();
-
         public static T ConfigurationComboBoxCodes<T>(this T form) where T : ReportsView
         {
+            InvoiceManagementEntities InvoiceManagementEntities = new InvoiceManagementEntities();
             var values = InvoiceManagementEntities.Reports.Select(item => item.Id).ToList();
             values.ForEach(item => form.ComboBoxReportsCode.Items.Add(item));
             form.ComboBoxReportsCode.SelectedIndex = 0;
@@ -21,6 +21,7 @@ namespace Practice_06.Utils
 
         public static T ConfigurationDataGridView<T>(this T form) where T : ReportsView
         {
+            InvoiceManagementEntities InvoiceManagementEntities = new InvoiceManagementEntities();
             var id = int.Parse(form.ComboBoxReportsCode.Text);
             var products = InvoiceManagementEntities.Products.Where(i => i.id_report == id).ToList();
             form.DataGridViewProducts.DataSource = products;
@@ -29,6 +30,7 @@ namespace Practice_06.Utils
 
         public static T ChangeTotalPrice<T>(this T form) where T : ReportsView
         {
+            InvoiceManagementEntities InvoiceManagementEntities = new InvoiceManagementEntities();
             var totalPrice = 0.0;
             var id = int.Parse(form.ComboBoxReportsCode.Text);
             var prices = InvoiceManagementEntities.Products
@@ -43,6 +45,7 @@ namespace Practice_06.Utils
 
         public static T ChangeCliente<T>(this T form) where T : ReportsView
         {
+            InvoiceManagementEntities InvoiceManagementEntities = new InvoiceManagementEntities();
             var id = int.Parse(form.ComboBoxReportsCode.Text);
             var report = InvoiceManagementEntities.Reports.Where(item => item.Id == id);
             var client = report.Select(item => item.Client).FirstOrDefault();
@@ -51,6 +54,40 @@ namespace Practice_06.Utils
             form.TextBoxInfoUser.Text = $"Client: {client}\r\nDate: {date}";
 
             return form;
+        }
+
+        public static void SaveReport<T>(this T form) where T : ReportsView
+        {
+            var reports = new InvoiceManagementEntities().Reports;
+            var count = reports.Count();
+
+            if (!VerifyInfoReport(form))
+            {
+                MessageBox.Show("All fields required");
+                return;
+            }
+
+            var report = new Report
+            {
+                Id = ++count,
+                Client = form.TextBoxClient.Text,
+                Date = form.DateTimePickerPurchase.Text,
+            };
+
+            //pending
+        }
+
+        private static List<TextBox> GetTextBoxs(Form form)
+        {
+            return form.Controls.OfType<TextBox>()
+                .Where(textbox => textbox.Name.Contains("TextBox"))
+                .ToList();
+        }
+
+        private static bool VerifyInfoReport(ReportsView form)
+        {
+            var textboxs = GetTextBoxs(form);
+            return textboxs.All(textbox => string.IsNullOrWhiteSpace(textbox.Text));
         }
     }
 }

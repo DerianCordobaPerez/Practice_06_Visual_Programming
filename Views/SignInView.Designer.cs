@@ -46,6 +46,7 @@
             this.TextBoxUserName.Name = "TextBoxUserName";
             this.TextBoxUserName.Size = new System.Drawing.Size(195, 20);
             this.TextBoxUserName.TabIndex = 0;
+            this.TextBoxUserName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TextBoxUserName_KeyUp);
             this.TextBoxUserName.Leave += new System.EventHandler(this.TextBoxUserName_Leave);
             // 
             // TextBoxPassword
@@ -55,6 +56,7 @@
             this.TextBoxPassword.PasswordChar = '*';
             this.TextBoxPassword.Size = new System.Drawing.Size(195, 20);
             this.TextBoxPassword.TabIndex = 1;
+            this.TextBoxPassword.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TextBoxPassword_KeyUp);
             this.TextBoxPassword.Leave += new System.EventHandler(this.TextBoxPassword_Leave);
             // 
             // label1
@@ -78,6 +80,7 @@
             // ButtonSignIn
             // 
             this.ButtonSignIn.BackColor = System.Drawing.Color.Navy;
+            this.ButtonSignIn.Enabled = false;
             this.ButtonSignIn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ButtonSignIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonSignIn.ForeColor = System.Drawing.SystemColors.ControlLight;

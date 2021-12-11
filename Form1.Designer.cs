@@ -117,20 +117,23 @@
             // ToolStripMenuItemCascade
             // 
             this.ToolStripMenuItemCascade.Name = "ToolStripMenuItemCascade";
-            this.ToolStripMenuItemCascade.Size = new System.Drawing.Size(129, 22);
+            this.ToolStripMenuItemCascade.Size = new System.Drawing.Size(180, 22);
             this.ToolStripMenuItemCascade.Text = "Cascade";
+            this.ToolStripMenuItemCascade.Click += new System.EventHandler(this.ToolStripMenuItemCascade_Click);
             // 
             // ToolStripMenuItemHorizontal
             // 
             this.ToolStripMenuItemHorizontal.Name = "ToolStripMenuItemHorizontal";
-            this.ToolStripMenuItemHorizontal.Size = new System.Drawing.Size(129, 22);
+            this.ToolStripMenuItemHorizontal.Size = new System.Drawing.Size(180, 22);
             this.ToolStripMenuItemHorizontal.Text = "Horizontal";
+            this.ToolStripMenuItemHorizontal.Click += new System.EventHandler(this.ToolStripMenuItemHorizontal_Click);
             // 
             // ToolStripMenuItemVertical
             // 
             this.ToolStripMenuItemVertical.Name = "ToolStripMenuItemVertical";
-            this.ToolStripMenuItemVertical.Size = new System.Drawing.Size(129, 22);
+            this.ToolStripMenuItemVertical.Size = new System.Drawing.Size(180, 22);
             this.ToolStripMenuItemVertical.Text = "Vertical";
+            this.ToolStripMenuItemVertical.Click += new System.EventHandler(this.ToolStripMenuItemVertical_Click);
             // 
             // ToolStripMenuItemHelp
             // 

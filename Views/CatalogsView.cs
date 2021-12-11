@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Practice_06.Utils;
 
 namespace Practice_06.Views
 {
@@ -19,8 +20,12 @@ namespace Practice_06.Views
 
         private void ProductsView_Load(object sender, EventArgs e)
         {
-            this.productTableAdapter.Fill(this.invoiceManagmentDataSet.Product);
-            
+            this.FillDataSet();
+        }
+
+        private void CatalogsView_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.HasChangesDataSet();
         }
     }
 }

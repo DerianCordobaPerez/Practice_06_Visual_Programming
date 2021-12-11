@@ -34,5 +34,20 @@ namespace Practice_06
         {
             this.ShowForm(new CatalogsView());
         }
+
+        private void ToolStripMenuItemCascade_Click(object sender, EventArgs e)
+        {
+            this.CascadeForm();
+        }
+
+        private void ToolStripMenuItemHorizontal_Click(object sender, EventArgs e)
+        {
+            this.HorizontalForm();
+        }
+
+        private void ToolStripMenuItemVertical_Click(object sender, EventArgs e)
+        {
+            this.VerticalForm();
+        }
     }
 }

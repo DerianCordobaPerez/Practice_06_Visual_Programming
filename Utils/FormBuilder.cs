@@ -51,14 +51,20 @@ namespace Practice_06.Utils
             }
         }
 
-        public static void ShowHideLabel<T>(this T form, object sender, Label label, int minimum) where T : Form
+        public static void CascadeForm<T>(this T form) where T : Form1
         {
-            if(((TextBox)sender).Text.Length < minimum)
-                label.Show();
-            else
-                label.Hide();
+            form.LayoutMdi(MdiLayout.Cascade);
         }
 
+        public static void HorizontalForm<T>(this T form) where T : Form1
+        {
+            form.LayoutMdi(MdiLayout.TileHorizontal);
+        }
+
+        public static void VerticalForm<T>(this T form) where T : Form1
+        {
+            form.LayoutMdi(MdiLayout.TileVertical);
+        }
 
         private static bool IsOpen(string name)
         {

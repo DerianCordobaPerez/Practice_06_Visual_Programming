@@ -31,16 +31,17 @@
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DataGridViewProducts = new System.Windows.Forms.DataGridView();
-            this.invoiceManagmentDataSet = new Practice_06.InvoiceManagmentDataSet();
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.invoiceManagmentDataSet = new Practice_06.InvoiceManagmentDataSet();
             this.productTableAdapter = new Practice_06.InvoiceManagmentDataSetTableAdapters.ProductTableAdapter();
+            this.idreportDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewProducts)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.invoiceManagmentDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.invoiceManagmentDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -58,6 +59,7 @@
             this.DataGridViewProducts.AutoGenerateColumns = false;
             this.DataGridViewProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridViewProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idreportDataGridViewTextBoxColumn,
             this.nameDataGridViewTextBoxColumn,
             this.priceDataGridViewTextBoxColumn,
             this.quantityDataGridViewTextBoxColumn});
@@ -67,19 +69,25 @@
             this.DataGridViewProducts.Size = new System.Drawing.Size(343, 206);
             this.DataGridViewProducts.TabIndex = 0;
             // 
-            // invoiceManagmentDataSet
-            // 
-            this.invoiceManagmentDataSet.DataSetName = "InvoiceManagmentDataSet";
-            this.invoiceManagmentDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // productBindingSource
             // 
             this.productBindingSource.DataMember = "Product";
             this.productBindingSource.DataSource = this.invoiceManagmentDataSet;
             // 
+            // invoiceManagmentDataSet
+            // 
+            this.invoiceManagmentDataSet.DataSetName = "InvoiceManagmentDataSet";
+            this.invoiceManagmentDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // productTableAdapter
             // 
             this.productTableAdapter.ClearBeforeFill = true;
+            // 
+            // idreportDataGridViewTextBoxColumn
+            // 
+            this.idreportDataGridViewTextBoxColumn.DataPropertyName = "id_report";
+            this.idreportDataGridViewTextBoxColumn.HeaderText = "Report";
+            this.idreportDataGridViewTextBoxColumn.Name = "idreportDataGridViewTextBoxColumn";
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -99,19 +107,20 @@
             this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
             this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
             // 
-            // ProductsView
+            // CatalogsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(383, 258);
             this.Controls.Add(this.groupBox1);
-            this.Name = "ProductsView";
+            this.Name = "CatalogsView";
             this.Text = "ProductsView";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CatalogsView_FormClosing);
             this.Load += new System.EventHandler(this.ProductsView_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewProducts)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.invoiceManagmentDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.invoiceManagmentDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -120,9 +129,10 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView DataGridViewProducts;
-        private InvoiceManagmentDataSet invoiceManagmentDataSet;
+        public InvoiceManagmentDataSetTableAdapters.ProductTableAdapter productTableAdapter;
         private System.Windows.Forms.BindingSource productBindingSource;
-        private InvoiceManagmentDataSetTableAdapters.ProductTableAdapter productTableAdapter;
+        public InvoiceManagmentDataSet invoiceManagmentDataSet;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idreportDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;

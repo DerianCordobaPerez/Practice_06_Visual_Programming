@@ -45,7 +45,17 @@
             this.ComboBoxReportsCode = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.productTableAdapter = new Practice_06.InvoiceManagmentDataSetTableAdapters.ProductTableAdapter();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.ButtonSave = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Products = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateTimePickerPurchase = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.TextBoxClient = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.TextBoxReportCode = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.invoiceManagmentDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -53,6 +63,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceManagmentDataSet)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceManagmentDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -112,6 +125,8 @@
             // 
             // DataGridViewProducts
             // 
+            this.DataGridViewProducts.AllowUserToAddRows = false;
+            this.DataGridViewProducts.AllowUserToDeleteRows = false;
             this.DataGridViewProducts.AutoGenerateColumns = false;
             this.DataGridViewProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridViewProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -122,6 +137,7 @@
             this.DataGridViewProducts.DataSource = this.productBindingSource;
             this.DataGridViewProducts.Location = new System.Drawing.Point(13, 19);
             this.DataGridViewProducts.Name = "DataGridViewProducts";
+            this.DataGridViewProducts.ReadOnly = true;
             this.DataGridViewProducts.Size = new System.Drawing.Size(442, 150);
             this.DataGridViewProducts.TabIndex = 0;
             // 
@@ -137,18 +153,21 @@
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
             this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // priceDataGridViewTextBoxColumn
             // 
             this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
             this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
             this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // quantityDataGridViewTextBoxColumn
             // 
             this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
             this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
             this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            this.quantityDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // productBindingSource
             // 
@@ -191,6 +210,13 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.groupBox2);
+            this.tabPage2.Controls.Add(this.DateTimePickerPurchase);
+            this.tabPage2.Controls.Add(this.label5);
+            this.tabPage2.Controls.Add(this.TextBoxClient);
+            this.tabPage2.Controls.Add(this.label4);
+            this.tabPage2.Controls.Add(this.TextBoxReportCode);
+            this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -199,9 +225,102 @@
             this.tabPage2.Text = "New";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // productTableAdapter
+            // groupBox2
             // 
-            this.productTableAdapter.ClearBeforeFill = true;
+            this.groupBox2.Controls.Add(this.ButtonSave);
+            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Location = new System.Drawing.Point(44, 150);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(406, 185);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Select the products and enter the quantity";
+            // 
+            // ButtonSave
+            // 
+            this.ButtonSave.BackColor = System.Drawing.Color.Navy;
+            this.ButtonSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ButtonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonSave.ForeColor = System.Drawing.SystemColors.Control;
+            this.ButtonSave.Location = new System.Drawing.Point(85, 135);
+            this.ButtonSave.Name = "ButtonSave";
+            this.ButtonSave.Size = new System.Drawing.Size(241, 39);
+            this.ButtonSave.TabIndex = 1;
+            this.ButtonSave.Text = "Save";
+            this.ButtonSave.UseVisualStyleBackColor = false;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Products,
+            this.Quantity});
+            this.dataGridView1.Location = new System.Drawing.Point(85, 19);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(241, 105);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // Products
+            // 
+            this.Products.HeaderText = "Products";
+            this.Products.Name = "Products";
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            // 
+            // DateTimePickerPurchase
+            // 
+            this.DateTimePickerPurchase.Location = new System.Drawing.Point(197, 117);
+            this.DateTimePickerPurchase.Name = "DateTimePickerPurchase";
+            this.DateTimePickerPurchase.Size = new System.Drawing.Size(200, 20);
+            this.DateTimePickerPurchase.TabIndex = 5;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(95, 117);
+            this.label5.Name = "label5";
+            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label5.Size = new System.Drawing.Size(95, 16);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Date purchase";
+            // 
+            // TextBoxClient
+            // 
+            this.TextBoxClient.Location = new System.Drawing.Point(196, 71);
+            this.TextBoxClient.Name = "TextBoxClient";
+            this.TextBoxClient.Size = new System.Drawing.Size(201, 20);
+            this.TextBoxClient.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(95, 72);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(77, 16);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Client name";
+            // 
+            // TextBoxReportCode
+            // 
+            this.TextBoxReportCode.Location = new System.Drawing.Point(196, 21);
+            this.TextBoxReportCode.Name = "TextBoxReportCode";
+            this.TextBoxReportCode.Size = new System.Drawing.Size(201, 20);
+            this.TextBoxReportCode.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(95, 22);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(82, 16);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Report code";
             // 
             // invoiceManagmentDataSetBindingSource
             // 
@@ -226,6 +345,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewProducts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceManagmentDataSet)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceManagmentDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -243,7 +366,6 @@
         public System.Windows.Forms.DataGridView DataGridViewProducts;
         private InvoiceManagmentDataSet invoiceManagmentDataSet;
         private System.Windows.Forms.BindingSource productBindingSource;
-        private InvoiceManagmentDataSetTableAdapters.ProductTableAdapter productTableAdapter;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.TextBox TextBoxTotal;
         private System.Windows.Forms.BindingSource invoiceManagmentDataSetBindingSource;
@@ -251,5 +373,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
+        public System.Windows.Forms.TextBox TextBoxReportCode;
+        private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.TextBox TextBoxClient;
+        private System.Windows.Forms.Label label4;
+        public System.Windows.Forms.DateTimePicker DateTimePickerPurchase;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.DataGridViewComboBoxColumn Products;
+        public System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.Button ButtonSave;
     }
 }
