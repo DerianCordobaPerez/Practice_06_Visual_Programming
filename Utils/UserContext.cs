@@ -8,21 +8,19 @@ namespace Practice_06.Utils
 {
     internal class UserContext
     {
-        private User User;
+        private User _user;
 
-        private static UserContext instance;
+        private static UserContext _instance;
 
         public static UserContext GetInstance()
         {
-            if (instance == null)
-                instance = new UserContext();
-            return instance;
+            return _instance ?? (_instance = new UserContext());
         }
 
-        public void SetUser(User user) => User = user;
-        public void RemoveUser() => User = null;
-        public User GetUser() => User;
-        public bool IsLoggedIn() => User != null;
+        public void SetUser(User user) => _user = user;
+        public void RemoveUser() => _user = null;
+        public User GetUser() => _user;
+        public bool IsLoggedIn() => _user != null;
         
 
     }

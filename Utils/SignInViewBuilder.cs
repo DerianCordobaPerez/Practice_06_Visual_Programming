@@ -13,22 +13,22 @@ namespace Practice_06.Utils
     {
         private static bool Success { get; set; }
 
-        public static void SignInForm<T>(this T form) where T : SignInView
+        private static void SignInForm<T>(this T form) where T : SignInView
         {
-            string username = form.TextBoxUserName.Text;
-            string password = form.TextBoxPassword.Text;
-            SignInController signInController = new SignInController();
+            var username = form.TextBoxUserName.Text;
+            var password = form.TextBoxPassword.Text;
+            var signInController = new SignInController();
             var user = signInController.SignIn(username, password);
 
             if (user != null)
             {
-                MessageBox.Show("Session successfully started");
+                MessageBox.Show(@"Session successfully started");
                 UserContext.GetInstance().SetUser(user);
                 Success = true;
                 return;
             }
 
-            MessageBox.Show("The username or password is incorrect");
+            MessageBox.Show(@"The username or password is incorrect");
             Success = false;
         }
 

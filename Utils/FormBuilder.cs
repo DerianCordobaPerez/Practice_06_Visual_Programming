@@ -41,8 +41,8 @@ namespace Practice_06.Utils
         {
             if (e.CloseReason == CloseReason.UserClosing)
             {
-                var response = MessageBox.Show("Are you sure you want to exit?",
-                "Exit?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                var response = MessageBox.Show(@"Are you sure you want to exit?",
+                @"Exit?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (response == DialogResult.Yes)
                     Application.Exit();

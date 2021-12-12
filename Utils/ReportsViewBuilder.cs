@@ -12,8 +12,8 @@ namespace Practice_06.Utils
     {
         public static T ConfigurationComboBoxCodes<T>(this T form) where T : ReportsView
         {
-            InvoiceManagementEntities InvoiceManagementEntities = new InvoiceManagementEntities();
-            var values = InvoiceManagementEntities.Reports.Select(item => item.Id).ToList();
+            InvoiceManagementEntities invoiceManagementEntities = new InvoiceManagementEntities();
+            var values = invoiceManagementEntities.Reports.Select(item => item.Id).ToList();
             values.ForEach(item => form.ComboBoxReportsCode.Items.Add(item));
             form.ComboBoxReportsCode.SelectedIndex = 0;
             return form;
@@ -21,19 +21,19 @@ namespace Practice_06.Utils
 
         public static T ConfigurationDataGridView<T>(this T form) where T : ReportsView
         {
-            InvoiceManagementEntities InvoiceManagementEntities = new InvoiceManagementEntities();
+            InvoiceManagementEntities invoiceManagementEntities = new InvoiceManagementEntities();
             var id = int.Parse(form.ComboBoxReportsCode.Text);
-            var products = InvoiceManagementEntities.Products.Where(i => i.id_report == id).ToList();
+            var products = invoiceManagementEntities.Products.Where(i => i.id_report == id).ToList();
             form.DataGridViewProducts.DataSource = products;
             return form;
         }
 
         public static T ChangeTotalPrice<T>(this T form) where T : ReportsView
         {
-            InvoiceManagementEntities InvoiceManagementEntities = new InvoiceManagementEntities();
+            InvoiceManagementEntities invoiceManagementEntities = new InvoiceManagementEntities();
             var totalPrice = 0.0;
             var id = int.Parse(form.ComboBoxReportsCode.Text);
-            var prices = InvoiceManagementEntities.Products
+            var prices = invoiceManagementEntities.Products
                 .Where(product => product.id_report == id)
                 .Select(product => product.Price)
                 .ToList();
@@ -45,9 +45,9 @@ namespace Practice_06.Utils
 
         public static T ChangeCliente<T>(this T form) where T : ReportsView
         {
-            InvoiceManagementEntities InvoiceManagementEntities = new InvoiceManagementEntities();
+            InvoiceManagementEntities invoiceManagementEntities = new InvoiceManagementEntities();
             var id = int.Parse(form.ComboBoxReportsCode.Text);
-            var report = InvoiceManagementEntities.Reports.Where(item => item.Id == id);
+            var report = invoiceManagementEntities.Reports.Where(item => item.Id == id);
             var client = report.Select(item => item.Client).FirstOrDefault();
             var date = report.Select(item => item.Date).FirstOrDefault();
 
@@ -63,7 +63,7 @@ namespace Practice_06.Utils
 
             if (!VerifyInfoReport(form))
             {
-                MessageBox.Show("All fields required");
+                MessageBox.Show(@"All fields required");
                 return;
             }
 
