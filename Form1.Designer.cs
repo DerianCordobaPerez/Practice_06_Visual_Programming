@@ -71,8 +71,9 @@
             // ToolStripMenuItemExit
             // 
             this.ToolStripMenuItemExit.Name = "ToolStripMenuItemExit";
-            this.ToolStripMenuItemExit.Size = new System.Drawing.Size(93, 22);
+            this.ToolStripMenuItemExit.Size = new System.Drawing.Size(180, 22);
             this.ToolStripMenuItemExit.Text = "Exit";
+            this.ToolStripMenuItemExit.Click += new System.EventHandler(this.ToolStripMenuItemExit_Click);
             // 
             // ToolStripMenuItemOperations
             // 
@@ -87,21 +88,21 @@
             // ToolStripMenuItemReports
             // 
             this.ToolStripMenuItemReports.Name = "ToolStripMenuItemReports";
-            this.ToolStripMenuItemReports.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemReports.Size = new System.Drawing.Size(168, 22);
             this.ToolStripMenuItemReports.Text = "Reports";
             this.ToolStripMenuItemReports.Click += new System.EventHandler(this.ToolStripMenuItemReports_Click);
             // 
             // ToolStripMenuItemCatalogs
             // 
             this.ToolStripMenuItemCatalogs.Name = "ToolStripMenuItemCatalogs";
-            this.ToolStripMenuItemCatalogs.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemCatalogs.Size = new System.Drawing.Size(168, 22);
             this.ToolStripMenuItemCatalogs.Text = "Catalogs";
             this.ToolStripMenuItemCatalogs.Click += new System.EventHandler(this.ToolStripMenuItemCatalogs_Click);
             // 
             // ToolStripMenuItemChangePassword
             // 
             this.ToolStripMenuItemChangePassword.Name = "ToolStripMenuItemChangePassword";
-            this.ToolStripMenuItemChangePassword.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemChangePassword.Size = new System.Drawing.Size(168, 22);
             this.ToolStripMenuItemChangePassword.Text = "Change password";
             this.ToolStripMenuItemChangePassword.Click += new System.EventHandler(this.ToolStripMenuItemChangePassword_Click);
             // 
@@ -147,8 +148,9 @@
             // ToolStripMenuItemAbout
             // 
             this.ToolStripMenuItemAbout.Name = "ToolStripMenuItemAbout";
-            this.ToolStripMenuItemAbout.Size = new System.Drawing.Size(107, 22);
+            this.ToolStripMenuItemAbout.Size = new System.Drawing.Size(180, 22);
             this.ToolStripMenuItemAbout.Text = "About";
+            this.ToolStripMenuItemAbout.Click += new System.EventHandler(this.ToolStripMenuItemAbout_Click);
             // 
             // statusStrip1
             // 

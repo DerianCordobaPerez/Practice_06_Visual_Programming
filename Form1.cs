@@ -54,5 +54,15 @@ namespace Practice_06
         {
             this.VerticalForm();
         }
+
+        private void ToolStripMenuItemExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void ToolStripMenuItemAbout_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

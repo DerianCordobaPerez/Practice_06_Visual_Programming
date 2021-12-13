@@ -42,12 +42,11 @@ namespace Practice_06.Utils
             InvoiceManagementEntities invoiceManagementEntities = new InvoiceManagementEntities();
             var totalPrice = 0.0;
             var id = int.Parse(form.ComboBoxReportsCode.Text);
-            var prices = invoiceManagementEntities.Products
+            var products = invoiceManagementEntities.Products
                 .Where(product => product.id_report == id)
-                .Select(product => product.Price)
                 .ToList();
 
-            prices.ForEach(price => totalPrice += price);
+            products.ForEach(product => totalPrice = (product.Price * product.Quantity));
             form.TextBoxTotal.Text = $@"{totalPrice}";
             return form;
         }
@@ -89,11 +88,15 @@ namespace Practice_06.Utils
             }
 
             var productHashSet = new HashSet<Product>();
-            var rows = form.DataGridViewNewProduct.RowCount - 1;
 
-            for(int i = 0; i < rows; ++i)
+            foreach (DataGridViewRow row in form.DataGridViewNewProduct.Rows)
             {
-                var name = form.DataGridViewNewProduct.Rows[i].Cells["Products"].Value.ToString();
+
+                var name = row.Cells["Products"].Value?.ToString();
+
+                if(name == null || string.IsNullOrEmpty(name) || string.IsNullOrWhiteSpace(name))
+                    continue;
+
                 var price = invoiceEntities.Products
                     .Where(item => item.Name.Equals(name))
                     .Select(item => item.Price)
@@ -104,9 +107,9 @@ namespace Practice_06.Utils
                     id_report = idReport,
                     Name = name,
                     Price = price,
-                    Quantity = int.Parse(form.DataGridViewNewProduct.Rows[i].Cells["Quantity"].Value.ToString())
+                    Quantity = int.Parse(row.Cells["Quantity"].Value?.ToString() ?? "1")
                 };
-                
+
                 productHashSet.Add(newProduct);
                 invoiceEntities.Products.Add(newProduct);
             }
@@ -122,20 +125,13 @@ namespace Practice_06.Utils
             reports.Add(report);
             await invoiceEntities.SaveChangesAsync();
             MessageBox.Show("Report saved successfully");
+            ClearControls(form);
         }
 
-        private static List<TextBox> GetTextBoxs(ReportsView form)
+        private static void ClearControls(ReportsView form)
         {
-            return form.Controls.OfType<TextBox>()
-                .Where(textbox => textbox.Name.StartsWith("_"))
-                .Select(textbox => textbox)
-                .ToList();
-        }
-
-        private static bool VerifyInfoReport(ReportsView form)
-        {
-            var textboxs = GetTextBoxs(form);
-            return textboxs.All(textbox => string.IsNullOrWhiteSpace(textbox.Text));
+            form.TextBoxClient.Clear();
+            form.TextBoxReportCode.Clear();
         }
     }
 }
