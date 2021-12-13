@@ -20,7 +20,8 @@ namespace Practice_06.Views
 
         private void ReportsView_Load(object sender, EventArgs e)
         {
-            this.ConfigurationComboBoxCodes()
+            this.ConfigurationDataGridViewProducts()
+                .ConfigurationComboBoxCodes()
                 .ConfigurationDataGridView()
                 .ChangeTotalPrice()
                 .ChangeCliente();
@@ -32,6 +33,11 @@ namespace Practice_06.Views
             this.ConfigurationDataGridView()
                 .ChangeTotalPrice()
                 .ChangeCliente();
+        }
+
+        private void ButtonSave_Click(object sender, EventArgs e)
+        {
+            this.SaveReport();
         }
     }
 }

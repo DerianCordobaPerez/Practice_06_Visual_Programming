@@ -19,6 +19,15 @@ namespace Practice_06.Utils
             return form;
         }
 
+        public static T ConfigurationDataGridViewProducts<T>(this T form) where T : ReportsView
+        {
+            InvoiceManagementEntities invoiceManagementEntities = new InvoiceManagementEntities();
+            var values = invoiceManagementEntities.Products.Select(item => item.Name).ToList();
+            values.ForEach(item => form.Products.Items.Add(item));
+
+            return form;
+        }
+
         public static T ConfigurationDataGridView<T>(this T form) where T : ReportsView
         {
             InvoiceManagementEntities invoiceManagementEntities = new InvoiceManagementEntities();
@@ -56,31 +65,70 @@ namespace Practice_06.Utils
             return form;
         }
 
-        public static void SaveReport<T>(this T form) where T : ReportsView
+        public static async void SaveReport<T>(this T form) where T : ReportsView
         {
-            var reports = new InvoiceManagementEntities().Reports;
-            var count = reports.Count();
+            var invoiceEntities = new InvoiceManagementEntities();
+            var reports = invoiceEntities.Reports;
+            var id = form.TextBoxReportCode.Text;
+            var client = form.TextBoxClient.Text;
 
-            if (!VerifyInfoReport(form))
+
+            if (string.IsNullOrWhiteSpace(id) || string.IsNullOrWhiteSpace(client))
             {
                 MessageBox.Show(@"All fields required");
                 return;
             }
 
+            var idReport = int.Parse(id);
+            var exists = reports.Where(item => item.Id == idReport).FirstOrDefault();
+
+            if (exists != null)
+            {
+                MessageBox.Show(@"The ID entered already exists in another record");
+                return;
+            }
+
+            var productHashSet = new HashSet<Product>();
+            var rows = form.DataGridViewNewProduct.RowCount - 1;
+
+            for(int i = 0; i < rows; ++i)
+            {
+                var name = form.DataGridViewNewProduct.Rows[i].Cells["Products"].Value.ToString();
+                var price = invoiceEntities.Products
+                    .Where(item => item.Name.Equals(name))
+                    .Select(item => item.Price)
+                    .FirstOrDefault();
+
+                var newProduct = new Product
+                {
+                    id_report = idReport,
+                    Name = name,
+                    Price = price,
+                    Quantity = int.Parse(form.DataGridViewNewProduct.Rows[i].Cells["Quantity"].Value.ToString())
+                };
+                
+                productHashSet.Add(newProduct);
+                invoiceEntities.Products.Add(newProduct);
+            }
+
             var report = new Report
             {
-                Id = ++count,
+                Id = int.Parse(id),
                 Client = form.TextBoxClient.Text,
                 Date = form.DateTimePickerPurchase.Text,
+                Products = productHashSet
             };
 
-            //pending
+            reports.Add(report);
+            await invoiceEntities.SaveChangesAsync();
+            MessageBox.Show("Report saved successfully");
         }
 
-        private static List<TextBox> GetTextBoxs(Form form)
+        private static List<TextBox> GetTextBoxs(ReportsView form)
         {
             return form.Controls.OfType<TextBox>()
-                .Where(textbox => textbox.Name.Contains("TextBox"))
+                .Where(textbox => textbox.Name.StartsWith("_"))
+                .Select(textbox => textbox)
                 .ToList();
         }
 
