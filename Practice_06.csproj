@@ -102,6 +102,12 @@
     <Compile Include="Utils\ReportsViewBuilder.cs" />
     <Compile Include="Utils\SignInViewBuilder.cs" />
     <Compile Include="Utils\UserContext.cs" />
+    <Compile Include="Views\AboutView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AboutView.Designer.cs">
+      <DependentUpon>AboutView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\CatalogsView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +145,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\AboutView.resx">
+      <DependentUpon>AboutView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\CatalogsView.resx">
       <DependentUpon>CatalogsView.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,6 +203,7 @@
       <DependentUpon>InvoiceManagementModel.edmx</DependentUpon>
       <LastGenOutput>InvoiceManagementModel.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\about.png" />
     <None Include="Resources\user.png" />
   </ItemGroup>
   <ItemGroup>

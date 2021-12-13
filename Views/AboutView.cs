@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Practice_06.Views
 {
-    public partial class About : Form
+    public partial class AboutView : Form
     {
-        public About()
+        public AboutView()
         {
             InitializeComponent();
         }

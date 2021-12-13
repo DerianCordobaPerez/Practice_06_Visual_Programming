@@ -62,7 +62,7 @@ namespace Practice_06
 
         private void ToolStripMenuItemAbout_Click(object sender, EventArgs e)
         {
-
+            this.ShowForm(new AboutView());
         }
     }
 }

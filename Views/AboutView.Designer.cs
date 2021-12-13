@@ -1,6 +1,6 @@
 ﻿namespace Practice_06.Views
 {
-    partial class About
+    partial class AboutView
     {
         /// <summary>
         /// Required designer variable.
