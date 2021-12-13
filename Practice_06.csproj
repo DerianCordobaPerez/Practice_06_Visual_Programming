@@ -97,6 +97,7 @@
       <DependentUpon>InvoiceManagementModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Utils\CatalogsViewBuilder.cs" />
+    <Compile Include="Utils\ChangePasswordViewBuilder.cs" />
     <Compile Include="Utils\FormBuilder.cs" />
     <Compile Include="Utils\ReportsViewBuilder.cs" />
     <Compile Include="Utils\SignInViewBuilder.cs" />
@@ -106,6 +107,12 @@
     </Compile>
     <Compile Include="Views\CatalogsView.Designer.cs">
       <DependentUpon>CatalogsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ChangePasswordView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ChangePasswordView.Designer.cs">
+      <DependentUpon>ChangePasswordView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\ReportsView.cs">
       <SubType>Form</SubType>
@@ -134,6 +141,9 @@
     </Compile>
     <EmbeddedResource Include="Views\CatalogsView.resx">
       <DependentUpon>CatalogsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ChangePasswordView.resx">
+      <DependentUpon>ChangePasswordView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ReportsView.resx">
       <DependentUpon>ReportsView.cs</DependentUpon>

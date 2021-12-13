@@ -21,7 +21,5 @@ namespace Practice_06.Utils
         public void RemoveUser() => _user = null;
         public User GetUser() => _user;
         public bool IsLoggedIn() => _user != null;
-        
-
     }
 }

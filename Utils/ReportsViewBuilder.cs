@@ -65,7 +65,7 @@ namespace Practice_06.Utils
             return form;
         }
 
-        public static async void SaveReport<T>(this T form) where T : ReportsView
+        public static async Task SaveReport<T>(this T form) where T : ReportsView
         {
             var invoiceEntities = new InvoiceManagementEntities();
             var reports = invoiceEntities.Reports;

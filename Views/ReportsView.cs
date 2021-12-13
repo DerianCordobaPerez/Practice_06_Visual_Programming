@@ -35,9 +35,9 @@ namespace Practice_06.Views
                 .ChangeCliente();
         }
 
-        private void ButtonSave_Click(object sender, EventArgs e)
+        private async void ButtonSave_Click(object sender, EventArgs e)
         {
-            this.SaveReport();
+            await this.SaveReport();
         }
     }
 }

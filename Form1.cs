@@ -21,7 +21,7 @@ namespace Practice_06
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           // this.ShowForm(new SignInView(), false);
+            this.ShowForm(new SignInView(), false);
             this.InitialConfiguration();
         }
 
@@ -33,6 +33,11 @@ namespace Practice_06
         private void ToolStripMenuItemCatalogs_Click(object sender, EventArgs e)
         {
             this.ShowForm(new CatalogsView());
+        }
+
+        private void ToolStripMenuItemChangePassword_Click(object sender, EventArgs e)
+        {
+            this.ShowForm(new ChangePasswordView());
         }
 
         private void ToolStripMenuItemCascade_Click(object sender, EventArgs e)
